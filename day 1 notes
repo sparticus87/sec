@@ -1,0 +1,69 @@
+-S = utilizing Socket file
+-MS = Master socket
+-O = control options
+-L = local port forward 
+Create master Socket for tcp connections
+ssh -MS /tmp/jump 10.50.33.89 (jump box)
+  
+for i in {1..126}; do (ping -c 1 192.168.28.$i | grep "bytes from" &) ; done=
+.1 .2 .3 .97 .98 .99 .100 .105 .111 .120
+
+ ssh -S /tmp/jump jump -O forward -D9050
+		## ^^ "where your forwarding it to"
+
+ss -nltp ##(check to see if port is open)
+
+proxychains nmap 192.168.28.1,2,3,97,98,99,1100,105,111,120
+proxychains nc ip port <-- verify what is on port
+----------------
+192.168.28.2
+53
+----------------
+192.168.28.3
+53
+----------------
+192.168.28.98
+53
+----------------
+192.168.28.99
+53
+----------------
+192.168.28.100
+80 (http)
+2222 (ssh)
+----------------
+192.168.28.105
+21 (ftp)
+23 (telnet)
+2222 (ssh)
+----------------
+192.168.28.111
+80 (http)
+2222 (ssh)
+8080 (http)
+----------------
+192.168.28.120
+4242 (ssh)
+----------------
+##ports forward to found ports
+	ssh -S /tmp/jump jump -O forward -L1111:192.168.28.100:80 -L2222:192.168.28.100:2222 -L3333:192.168.28.111:80 -L5555:192.168.28.111:2222
+	ss -nltp <-- see if the ports are open correctly
+##navigate via firefox to 
+##http://127.0.0.1:3333
+	firefox 
+	go to loopback ip and specific port connected to any http server (usually port 80)
+
+random notes for tommorow
+## authenticate with first target
+ssh -MS /tmp/t1 creds@127.0.0.1 -p 2222
+
+##ping sweep new network
+for i in {20..40}; do (ping -c 1 100.200.25.$i | grep "bytes from" &) ; done=
+
+##found 100.200.25.30 and 100.200.25.35
+
+##cancel port forward
+ssh -S /tmp/jump jump -O cancel -D9050
+
+##port forward through new master socket t1
+ssh -S /tmp/t1 t1 -O forward -D9050
