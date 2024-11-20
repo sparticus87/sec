@@ -155,12 +155,15 @@ nmap --script-trace
 **Demonstration**
 Usage of Nmap NSE
 
+for i in {1..254}; do (ping -c 1 172.16.82.$i | grep "bytes from" &) ; done
+
 Scheme of Maneuver:
 >jump box
 -> network scan 192.168.28.96/27
---> network scan 192.168.28.96/27
-
-
+--> network scan 192.168.150.224/27
+nmap scripts
+  --script=http-enum <ip>
+  
 
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
