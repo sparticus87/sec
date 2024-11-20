@@ -25,7 +25,6 @@ Penetration Testing
     -Exfiltrate target data
 **Phase 6: Document Mission**
   -Document and report mission details
-  
 **Penetration Test Reporting**
   -Operation Notes (OPNOTES) vs Formalized Reporting
 **Penetration Test Reporting**
@@ -155,6 +154,14 @@ nmap --script-help <filename>|<category>|<directory>
 nmap --script-trace
 **Demonstration**
 Usage of Nmap NSE
+
+Scheme of Maneuver:
+>jump box
+-> network scan 192.168.28.96/27
+--> network scan 192.168.28.96/27
+
+
+
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 
