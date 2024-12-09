@@ -1,0 +1,36 @@
+ECON -- Scan
+use nmap scripts, verify services with nc
+interact with web pages
+authentication bypass
+http get/post method
+network tab post reqest, request tab, paste into url
+---
+Sql steps
+1)identify vulnerable field
+2)identify number of columns
+3)Modify Golden Statement
+4)parse through data
+---
+considerations for being on linux/windows
+scheduled tasks
+for windows use audicle
+ps -elf, htop, top, crontab
+
+Binary Analysis(reverse_engineering)
+run file, strings, gidra, 
+if x >> 4 = 32 (bit shift) ((32<<4=512)
+
+windows persistence
+Run_keys
+dll hijacking
+exe replacement (right or rename) go to services(description), task scheduler(poorly worded)
+
+if asked to find a file look for hints in question
+
+linux eploit development
+gdb steps on target box itself
+disass -- finds functions
+
+id._rsa.pub
+ 
+ 
