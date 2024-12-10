@@ -329,7 +329,7 @@ Once this process has be finished you should now be able to ssh on the target sy
 uploads
 robots.txt
 
-
+xfreerdp /V ip:pt /u:user /p:password +clipboard 
 
 
 
